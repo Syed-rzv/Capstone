@@ -1,0 +1,13 @@
+import folium
+from folium.plugins import HeatMap
+
+# Sample a subset if too large
+sample_df = df[['lat', 'lng']].dropna().sample(1000)
+
+# Base map
+m = folium.Map(location=[40.2, -75.3], zoom_start=10)
+
+# HeatMap
+HeatMap(data=sample_df).add_to(m)
+
+m.save('heatmap.html')
