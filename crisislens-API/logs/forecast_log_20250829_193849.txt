@@ -1,0 +1,2 @@
+2025-08-29 19:38:49,487 INFO Fetching unique emergency types from emergency_data
+2025-08-29 19:38:49,494 INFO Found emergency types: ['EMS', 'Fire', 'Traffic']

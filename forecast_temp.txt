@@ -1,0 +1,16 @@
+Importing plotly failed. Interactive plots will not work.
+2025-08-21 15:38:25,446 INFO Historical data range: 2015-12-10 -> 2016-12-31 (388 days)
+2025-08-21 15:38:25,507 DEBUG cmd: where.exe tbb.dll
+cwd: None
+2025-08-21 15:38:25,576 DEBUG Adding TBB (C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\venv\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+2025-08-21 15:38:25,594 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpftankf09\bot1dw8d.json
+2025-08-21 15:38:25,628 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpftankf09\rz0l9t9q.json
+2025-08-21 15:38:25,630 DEBUG idx 0
+2025-08-21 15:38:25,630 DEBUG running CmdStan, num_threads: None
+2025-08-21 15:38:25,630 DEBUG CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=91909', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpftankf09\\bot1dw8d.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpftankf09\\rz0l9t9q.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpftankf09\\prophet_modelzaamll18\\prophet_model-20250821153825.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+15:38:25 - cmdstanpy - INFO - Chain [1] start processing
+2025-08-21 15:38:25,630 INFO Chain [1] start processing
+15:38:25 - cmdstanpy - INFO - Chain [1] done processing
+2025-08-21 15:38:25,712 INFO Chain [1] done processing
+2025-08-21 15:38:25,833 INFO \u2705 Forecast saved to forecast_calls
+2025-08-21 15:38:25,834 INFO Forecast generation complete.

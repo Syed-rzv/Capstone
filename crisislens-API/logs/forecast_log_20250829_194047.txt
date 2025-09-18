@@ -1,0 +1,39 @@
+2025-08-29 19:40:47,883 INFO Fetching unique emergency types from emergency_data
+2025-08-29 19:40:47,891 INFO Found emergency types: ['EMS', 'Fire', 'Traffic']
+2025-08-29 19:40:48,426 DEBUG cmd: where.exe tbb.dll
+cwd: None
+2025-08-29 19:40:48,530 DEBUG Adding TBB (C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\venv\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+2025-08-29 19:40:48,601 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpm7qxkybc\79ohk9ys.json
+2025-08-29 19:40:48,631 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpm7qxkybc\rpmc7etm.json
+2025-08-29 19:40:48,641 DEBUG idx 0
+2025-08-29 19:40:48,641 DEBUG running CmdStan, num_threads: None
+2025-08-29 19:40:48,641 DEBUG CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=71005', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpm7qxkybc\\79ohk9ys.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpm7qxkybc\\rpmc7etm.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpm7qxkybc\\prophet_modelqz7yd8vp\\prophet_model-20250829194048.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2025-08-29 19:40:48,641 INFO Chain [1] start processing
+2025-08-29 19:40:49,217 INFO Chain [1] done processing
+2025-08-29 19:40:49,328 INFO Anchoring forecast: shifting by 3163 days to align with today.
+2025-08-29 19:40:49,555 INFO Saved 30 rows to forecasted_calls for type: EMS
+2025-08-29 19:40:49,625 DEBUG cmd: where.exe tbb.dll
+cwd: None
+2025-08-29 19:40:49,700 DEBUG TBB already found in load path
+2025-08-29 19:40:49,716 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpm7qxkybc\ayryqenk.json
+2025-08-29 19:40:49,746 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpm7qxkybc\wypf41y4.json
+2025-08-29 19:40:49,748 DEBUG idx 0
+2025-08-29 19:40:49,749 DEBUG running CmdStan, num_threads: None
+2025-08-29 19:40:49,749 DEBUG CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=59602', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpm7qxkybc\\ayryqenk.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpm7qxkybc\\wypf41y4.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpm7qxkybc\\prophet_modelfzdafwdj\\prophet_model-20250829194049.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2025-08-29 19:40:49,749 INFO Chain [1] start processing
+2025-08-29 19:40:49,804 INFO Chain [1] done processing
+2025-08-29 19:40:49,896 INFO Anchoring forecast: shifting by 3163 days to align with today.
+2025-08-29 19:40:49,924 INFO Saved 30 rows to forecasted_calls for type: Fire
+2025-08-29 19:40:50,046 DEBUG cmd: where.exe tbb.dll
+cwd: None
+2025-08-29 19:40:50,119 DEBUG TBB already found in load path
+2025-08-29 19:40:50,133 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpm7qxkybc\wmcsy3q4.json
+2025-08-29 19:40:50,164 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpm7qxkybc\yd6mxtql.json
+2025-08-29 19:40:50,165 DEBUG idx 0
+2025-08-29 19:40:50,165 DEBUG running CmdStan, num_threads: None
+2025-08-29 19:40:50,165 DEBUG CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=32034', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpm7qxkybc\\wmcsy3q4.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpm7qxkybc\\yd6mxtql.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpm7qxkybc\\prophet_modellrc6gcpl\\prophet_model-20250829194050.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2025-08-29 19:40:50,175 INFO Chain [1] start processing
+2025-08-29 19:40:50,240 INFO Chain [1] done processing
+2025-08-29 19:40:50,363 INFO Anchoring forecast: shifting by 3163 days to align with today.
+2025-08-29 19:40:50,387 INFO Saved 30 rows to forecasted_calls for type: Traffic
+2025-08-29 19:40:50,390 INFO Inserted forecast dates: [datetime.date(2025, 8, 30), datetime.date(2025, 8, 30), datetime.date(2025, 8, 30), datetime.date(2025, 8, 31), datetime.date(2025, 8, 31), datetime.date(2025, 8, 31), datetime.date(2025, 9, 1), datetime.date(2025, 9, 1), datetime.date(2025, 9, 1), datetime.date(2025, 9, 2), datetime.date(2025, 9, 2), datetime.date(2025, 9, 2), datetime.date(2025, 9, 3), datetime.date(2025, 9, 3), datetime.date(2025, 9, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 4), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 5), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 6), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 7), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 8), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 9), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 10), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 11), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 12), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 13), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 14), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 15), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 16), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 17), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 18), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 19), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 20), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 21), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 22), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 23), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 24), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 25), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 26), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 27), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 28), datetime.date(2025, 9, 28)]

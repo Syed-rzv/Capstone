@@ -1,0 +1,61 @@
+============================= 
+Run started at 21/08/2025 18:15:40.93 
+============================= 
+Importing plotly failed. Interactive plots will not work.
+2025-08-21 18:15:43,744 INFO Historical data range: 2015-12-10 -> 2016-12-31 (388 days)
+2025-08-21 18:15:43,888 DEBUG cmd: where.exe tbb.dll
+cwd: None
+2025-08-21 18:15:44,002 DEBUG Adding TBB (C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\venv\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+2025-08-21 18:15:44,057 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmp8yr3xyei\nbv5_edb.json
+2025-08-21 18:15:44,093 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmp8yr3xyei\r7sm11vv.json
+2025-08-21 18:15:44,097 DEBUG idx 0
+2025-08-21 18:15:44,097 DEBUG running CmdStan, num_threads: None
+2025-08-21 18:15:44,097 DEBUG CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=86', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmp8yr3xyei\\nbv5_edb.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmp8yr3xyei\\r7sm11vv.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmp8yr3xyei\\prophet_modellb4pjmy5\\prophet_model-20250821181544.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+18:15:44 - cmdstanpy - INFO - Chain [1] start processing
+2025-08-21 18:15:44,097 INFO Chain [1] start processing
+18:15:44 - cmdstanpy - INFO - Chain [1] done processing
+2025-08-21 18:15:44,207 INFO Chain [1] done processing
+2025-08-21 18:15:44,327 INFO No forecasts to insert (all dates in the past).
+2025-08-21 18:15:44,327 INFO No new forecast dates inserted.
+SUCCESS: Forecast run completed at 21/08/2025 18:15:44.62 
+ 
+============================= 
+Run started at 21/08/2025 18:19:03.42 
+============================= 
+Importing plotly failed. Interactive plots will not work.
+2025-08-21 18:19:05,142 INFO Historical data range: 2015-12-10 -> 2016-12-31 (388 days)
+2025-08-21 18:19:05,195 DEBUG cmd: where.exe tbb.dll
+cwd: None
+2025-08-21 18:19:05,283 DEBUG Adding TBB (C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\venv\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+2025-08-21 18:19:05,302 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpx_yxitmd\kdw1lq2b.json
+2025-08-21 18:19:05,336 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpx_yxitmd\oqvi_2oe.json
+2025-08-21 18:19:05,338 DEBUG idx 0
+2025-08-21 18:19:05,338 DEBUG running CmdStan, num_threads: None
+2025-08-21 18:19:05,338 DEBUG CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=32851', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpx_yxitmd\\kdw1lq2b.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpx_yxitmd\\oqvi_2oe.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpx_yxitmd\\prophet_modelf1pajpbs\\prophet_model-20250821181905.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+18:19:05 - cmdstanpy - INFO - Chain [1] start processing
+2025-08-21 18:19:05,338 INFO Chain [1] start processing
+18:19:05 - cmdstanpy - INFO - Chain [1] done processing
+2025-08-21 18:19:05,424 INFO Chain [1] done processing
+2025-08-21 18:19:05,512 INFO Anchoring forecast: shifting forecast by 3155 days to align with today.
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 29: character maps to <undefined>
+Call stack:
+  File "C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\forecast_service.py", line 224, in <module>
+    generate_forecast(model=args.model, periods=args.periods, anchor=args.anchor)
+  File "C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\forecast_service.py", line 207, in generate_forecast
+    inserted_dates = store_forecast(forecast_df, model_used=model.capitalize())
+  File "C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\forecast_service.py", line 141, in store_forecast
+    logging.info(f"\u2705 Forecast saved to forecast_calls ({len(values)} rows).")
+Message: '\u2705 Forecast saved to forecast_calls (30 rows).'
+Arguments: ()
+2025-08-21 18:19:05,626 INFO \u2705 Forecast saved to forecast_calls (30 rows).
+2025-08-21 18:19:05,672 INFO Inserted forecast dates: [datetime.date(2025, 8, 22), datetime.date(2025, 8, 23), datetime.date(2025, 8, 24), datetime.date(2025, 8, 25), datetime.date(2025, 8, 26), datetime.date(2025, 8, 27), datetime.date(2025, 8, 28), datetime.date(2025, 8, 29), datetime.date(2025, 8, 30), datetime.date(2025, 8, 31), datetime.date(2025, 9, 1), datetime.date(2025, 9, 2), datetime.date(2025, 9, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20)]
+2025-08-22,2025-08-23,2025-08-24,2025-08-25,2025-08-26,2025-08-27,2025-08-28,2025-08-29,2025-08-30,2025-08-31,2025-09-01,2025-09-02,2025-09-03,2025-09-04,2025-09-05,2025-09-06,2025-09-07,2025-09-08,2025-09-09,2025-09-10,2025-09-11,2025-09-12,2025-09-13,2025-09-14,2025-09-15,2025-09-16,2025-09-17,2025-09-18,2025-09-19,2025-09-20
+SUCCESS: Forecast run completed at 21/08/2025 18:19:05.88 
+ 

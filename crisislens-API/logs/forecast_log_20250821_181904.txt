@@ -1,0 +1,13 @@
+2025-08-21 18:19:05,142 INFO Historical data range: 2015-12-10 -> 2016-12-31 (388 days)
+2025-08-21 18:19:05,195 DEBUG cmd: where.exe tbb.dll
+cwd: None
+2025-08-21 18:19:05,283 DEBUG Adding TBB (C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\venv\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+2025-08-21 18:19:05,302 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpx_yxitmd\kdw1lq2b.json
+2025-08-21 18:19:05,336 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpx_yxitmd\oqvi_2oe.json
+2025-08-21 18:19:05,338 DEBUG idx 0
+2025-08-21 18:19:05,338 DEBUG running CmdStan, num_threads: None
+2025-08-21 18:19:05,338 DEBUG CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=32851', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpx_yxitmd\\kdw1lq2b.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpx_yxitmd\\oqvi_2oe.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpx_yxitmd\\prophet_modelf1pajpbs\\prophet_model-20250821181905.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2025-08-21 18:19:05,338 INFO Chain [1] start processing
+2025-08-21 18:19:05,424 INFO Chain [1] done processing
+2025-08-21 18:19:05,512 INFO Anchoring forecast: shifting forecast by 3155 days to align with today.
+2025-08-21 18:19:05,672 INFO Inserted forecast dates: [datetime.date(2025, 8, 22), datetime.date(2025, 8, 23), datetime.date(2025, 8, 24), datetime.date(2025, 8, 25), datetime.date(2025, 8, 26), datetime.date(2025, 8, 27), datetime.date(2025, 8, 28), datetime.date(2025, 8, 29), datetime.date(2025, 8, 30), datetime.date(2025, 8, 31), datetime.date(2025, 9, 1), datetime.date(2025, 9, 2), datetime.date(2025, 9, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20)]

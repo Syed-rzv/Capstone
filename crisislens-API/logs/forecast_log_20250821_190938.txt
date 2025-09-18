@@ -1,0 +1,13 @@
+2025-08-21 19:09:38,651 INFO Historical data range: 2015-12-10 -> 2016-12-31 (388 days)
+2025-08-21 19:09:38,696 DEBUG cmd: where.exe tbb.dll
+cwd: None
+2025-08-21 19:09:38,787 DEBUG Adding TBB (C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\venv\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+2025-08-21 19:09:38,793 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpol1e4rm0\66cr7ijv.json
+2025-08-21 19:09:38,823 DEBUG input tempfile: C:\Users\97150\AppData\Local\Temp\tmpol1e4rm0\ulci5ggh.json
+2025-08-21 19:09:38,823 DEBUG idx 0
+2025-08-21 19:09:38,823 DEBUG running CmdStan, num_threads: None
+2025-08-21 19:09:38,823 DEBUG CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=82825', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpol1e4rm0\\66cr7ijv.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpol1e4rm0\\ulci5ggh.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpol1e4rm0\\prophet_modelsjwzaodx\\prophet_model-20250821190938.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+2025-08-21 19:09:38,823 INFO Chain [1] start processing
+2025-08-21 19:09:38,916 INFO Chain [1] done processing
+2025-08-21 19:09:38,998 INFO No forecasts to insert (all dates in the past).
+2025-08-21 19:09:38,998 INFO No new forecast dates inserted.

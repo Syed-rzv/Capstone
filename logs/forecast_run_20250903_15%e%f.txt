@@ -1,0 +1,243 @@
+============================= 
+Run started at 03/09/2025 15:47:04.97 
+============================= 
+Importing plotly failed. Interactive plots will not work.
+Starting forecast generation...
+Found emergency types: ['EMS', 'Fire', 'Medical', 'Police']
+cmd: where.exe tbb.dll
+cwd: None
+Adding TBB (C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\venv\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+n_changepoints greater than number of observations. Using 23.
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\clo85472.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\0fwyjr2c.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=93475', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\clo85472.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\0fwyjr2c.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\prophet_modelbxnwsjsr\\prophet_model-20250903154711.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:11 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:12 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 42 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\EMS_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+n_changepoints greater than number of observations. Using 24.
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\r5as04pf.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\qn9s7ss9.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=36900', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\r5as04pf.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\qn9s7ss9.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\prophet_modeljjac_550\\prophet_model-20250903154714.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:14 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:14 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Fire_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\pw3t3nlu.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\ei3se9gw.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=28790', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\pw3t3nlu.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\ei3se9gw.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\prophet_model5wtxp0u5\\prophet_model-20250903154714.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:14 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:14 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Medical_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\zalofmga.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\wyj8_6cf.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=7449', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\zalofmga.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\wyj8_6cf.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\prophet_modelz5vy0v49\\prophet_model-20250903154715.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:15 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:15 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Police_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\qj_2xziy.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpsltwzpq1\u5hbrshu.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=34992', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\qj_2xziy.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\u5hbrshu.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpsltwzpq1\\prophet_models9s2ynyv\\prophet_model-20250903154715.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:15 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:16 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Overall_forecast.png
+Inserted forecast for dates: [datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3)]
+SUCCESS: Forecast run completed at 03/09/2025 15:47:16.94 
+ 
+============================= 
+Run started at 03/09/2025 15:47:39.15 
+============================= 
+Importing plotly failed. Interactive plots will not work.
+Starting forecast generation...
+Found emergency types: ['EMS', 'Fire', 'Medical', 'Police']
+cmd: where.exe tbb.dll
+cwd: None
+Adding TBB (C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\venv\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+n_changepoints greater than number of observations. Using 23.
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\o14ixxn9.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\du3kwn9m.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=956', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\o14ixxn9.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\du3kwn9m.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\prophet_modely0l1mo63\\prophet_model-20250903154740.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:40 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:41 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 42 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\EMS_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+n_changepoints greater than number of observations. Using 24.
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\1px3cwjx.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\kmxptjhl.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=15722', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\1px3cwjx.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\kmxptjhl.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\prophet_modelo2v4ie36\\prophet_model-20250903154741.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:41 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:41 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Fire_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\8pxhf4uz.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\1a_lao7h.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=32086', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\8pxhf4uz.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\1a_lao7h.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\prophet_modelpms4qk_9\\prophet_model-20250903154742.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:42 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:42 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Medical_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\3pxwnd85.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\547xkav8.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=51800', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\3pxwnd85.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\547xkav8.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\prophet_modely51oloxl\\prophet_model-20250903154742.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:42 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:42 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Police_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\bg394mfo.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpbiva73r7\v7r85040.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=87063', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\bg394mfo.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\v7r85040.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpbiva73r7\\prophet_model4p9t8gd7\\prophet_model-20250903154743.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:47:43 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:47:43 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Overall_forecast.png
+Inserted forecast for dates: [datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3)]
+SUCCESS: Forecast run completed at 03/09/2025 15:47:44.09 
+ 
+============================= 
+Run started at 03/09/2025 15:52:09.60 
+============================= 
+Importing plotly failed. Interactive plots will not work.
+Starting forecast generation...
+Found emergency types: ['EMS', 'Fire', 'Medical', 'Police']
+cmd: where.exe tbb.dll
+cwd: None
+Adding TBB (C:\Users\97150\OneDrive\Documents\Capstone\crisislens-API\venv\Lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+n_changepoints greater than number of observations. Using 23.
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\3f67lunc.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\44w8yy1w.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=38260', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\3f67lunc.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\44w8yy1w.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\prophet_model36ozeoq0\\prophet_model-20250903155211.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:52:11 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:52:11 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 42 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\EMS_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+n_changepoints greater than number of observations. Using 24.
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\_qv0fqhd.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\hevthpw7.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=33037', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\_qv0fqhd.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\hevthpw7.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\prophet_modelhdcbmhjd\\prophet_model-20250903155211.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:52:11 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:52:12 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Fire_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\g0m3tjtf.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\l6q7vwtq.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=23338', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\g0m3tjtf.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\l6q7vwtq.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\prophet_modelz6mw02om\\prophet_model-20250903155212.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:52:12 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:52:12 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Medical_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\g9qhm0hv.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\xw9bdzkl.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=32690', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\g9qhm0hv.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\xw9bdzkl.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\prophet_modelio8get4j\\prophet_model-20250903155212.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:52:12 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:52:13 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Police_forecast.png
+cmd: where.exe tbb.dll
+cwd: None
+TBB already found in load path
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\pjwl0les.json
+input tempfile: C:\Users\97150\AppData\Local\Temp\tmpj7y97xmm\78k9umpg.json
+idx 0
+running CmdStan, num_threads: None
+CmdStan args: ['C:\\Users\\97150\\OneDrive\\Documents\\Capstone\\crisislens-API\\venv\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=43385', 'data', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\pjwl0les.json', 'init=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\78k9umpg.json', 'output', 'file=C:\\Users\\97150\\AppData\\Local\\Temp\\tmpj7y97xmm\\prophet_modelngtu42g9\\prophet_model-20250903155213.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+15:52:13 - cmdstanpy - INFO - Chain [1] start processing
+Chain [1] start processing
+15:52:13 - cmdstanpy - INFO - Chain [1] done processing
+Chain [1] done processing
+Anchoring forecast: shifting by 3 days to align with today.
+Saved forecast plot: C:\Users\97150\Downloads\Capstone\crisislens-API\forecasts\plots\Overall_forecast.png
+Inserted forecast for dates: [datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3), datetime.date(2025, 9, 4), datetime.date(2025, 9, 5), datetime.date(2025, 9, 6), datetime.date(2025, 9, 7), datetime.date(2025, 9, 8), datetime.date(2025, 9, 9), datetime.date(2025, 9, 10), datetime.date(2025, 9, 11), datetime.date(2025, 9, 12), datetime.date(2025, 9, 13), datetime.date(2025, 9, 14), datetime.date(2025, 9, 15), datetime.date(2025, 9, 16), datetime.date(2025, 9, 17), datetime.date(2025, 9, 18), datetime.date(2025, 9, 19), datetime.date(2025, 9, 20), datetime.date(2025, 9, 21), datetime.date(2025, 9, 22), datetime.date(2025, 9, 23), datetime.date(2025, 9, 24), datetime.date(2025, 9, 25), datetime.date(2025, 9, 26), datetime.date(2025, 9, 27), datetime.date(2025, 9, 28), datetime.date(2025, 9, 29), datetime.date(2025, 9, 30), datetime.date(2025, 10, 1), datetime.date(2025, 10, 2), datetime.date(2025, 10, 3)]
+SUCCESS: Forecast run completed at 03/09/2025 15:52:14.30 
+ 
