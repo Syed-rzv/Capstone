@@ -1,0 +1,17 @@
+/* Marker Cluster minimal styles */
+.marker-cluster-small {
+    background-color: rgba(181, 226, 140, 0.6);
+}
+.marker-cluster-medium {
+    background-color: rgba(241, 211, 87, 0.6);
+}
+.marker-cluster-large {
+    background-color: rgba(253, 156, 115, 0.6);
+}
+.marker-cluster {
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    line-height: 40px;
+}
