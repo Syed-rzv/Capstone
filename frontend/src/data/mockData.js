@@ -16,11 +16,17 @@ export const generateMockData = () => {
         id: i + 1,
         timestamp: randomDate.toISOString(),
         emergency_type: types[Math.floor(Math.random() * types.length)],
+        emergencyType: types[Math.floor(Math.random() * types.length)], // ADD THIS
         caller_age: Math.floor(Math.random() * 70) + 18,
+        callerAge: Math.floor(Math.random() * 70) + 18, 
         caller_gender: genders[Math.floor(Math.random() * genders.length)],
+        callerGender: genders[Math.floor(Math.random() * genders.length)], // ADD THIS
         latitude: 40.1 + Math.random() * 0.3,
+        lat: 40.1 + Math.random() * 0.3,
         longitude: -75.6 + Math.random() * 0.3,
+        lng: -75.6 + Math.random() * 0.3, 
         township: townships[Math.floor(Math.random() * townships.length)],
+        district: townships[Math.floor(Math.random() * townships.length)], // ADD THIS
         zipcode: zipcodes[Math.floor(Math.random() * zipcodes.length)],
         emergency_title: `Emergency ${i + 1}`,
       });
