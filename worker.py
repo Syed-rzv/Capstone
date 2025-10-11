@@ -2,16 +2,23 @@
 import os
 import sys
 from redis import Redis
-from rq import Worker, Queue
+from rq import Worker, Queue, SimpleWorker
 
-# Add project root so Python can find Classifier
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-#from Classifier import classifier_enricher
+# Add Classifier to path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Import the processing function
+from Classifier.tasks import process_emergency_call
 
 listen = ['crisislens']
 redis_conn = Redis(host='localhost', port=6379, db=0)
 
 if __name__ == '__main__':
+    print("🚀 CrisisLens Worker Starting...")
+    print(f"📡 Listening to queues: {listen}")
+    print("-" * 60)
+    
     qs = list(map(lambda q: Queue(q, connection=redis_conn), listen))
-    w = Worker(qs)
+    # Use SimpleWorker instead of Worker for Windows compatibility
+    w = SimpleWorker(qs, connection=redis_conn)
     w.work()

@@ -18,92 +18,226 @@ import pandas as pd
 
 # Add project root to Python path (so we can import Classifier scripts)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-#from Classifier import classifier_enricher
+
+# Import the background processing function
+from Classifier.tasks import process_emergency_call
 
 # ------------------------- Configuration -------------------------
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
 app = Flask(__name__)
-CORS(app)  # Allow frontend / Power BI access
+CORS(app, resources={       # Allow frontend access
+    r"/*": {
+        "origins": ["http://localhost:5173", "http://127.0.0.1:5173"],
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"]
+    }
+}) 
 
 # Redis connection + queue for enrichment jobs
 redis_conn = Redis(host="localhost", port=6379, db=0)
 q = Queue("crisislens", connection=redis_conn)
-
 # ------------------------- Home -------------------------
 @app.route('/')
 def home():
     return jsonify({"message": "CrisisLens API is running"})
 
 # ------------------------- Emergency Calls Endpoints -------------------------
+# ------------------------- Emergency Calls Endpoints -------------------------
 @app.route('/calls', methods=['GET'])
 def get_calls():
     try:
         page = max(int(request.args.get('page', 1)), 1)
-        limit = min(max(int(request.args.get('limit', 100)), 1), 1000)
+        limit = min(max(int(request.args.get('limit', 100)), 1), 50000)
     except ValueError:
         return jsonify({"error": "Invalid 'page' or 'limit'"}), 400
 
     offset = (page - 1) * limit
-    date = request.args.get('date')  # YYYY-MM-DD
+    date = request.args.get('date')
     emergency_type = request.args.get('type')
     emergency_subtype = request.args.get('subtype')
-    township = request.args.get('township')
+    district = request.args.get('district')  # Frontend sends 'district'
+    source_filter = request.args.get('source', 'all')
 
-    query = """
-        SELECT id, timestamp, emergency_type, emergency_subtype, township as district, latitude, longitude,
-               description, emergency_title, zipcode, address, priority_flag, caller_gender,
-               caller_age, response_time, source
-        FROM emergency_data WHERE 1=1
-    """
+    # Build WHERE conditions (need to handle both column names)
+    where_conditions = []
     params = []
 
     if date:
-        query += " AND DATE(timestamp) = %s"
+        where_conditions.append("DATE(timestamp) = %s")
         params.append(date)
     if emergency_type:
-        query += " AND emergency_type = %s"
+        where_conditions.append("emergency_type = %s")
         params.append(emergency_type)
     if emergency_subtype:
-        query += " AND emergency_subtype = %s"
+        where_conditions.append("emergency_subtype = %s")
         params.append(emergency_subtype)
-    if township:
-        query += " AND township = %s"
-        params.append(township)
 
-    query += " ORDER BY timestamp DESC LIMIT %s OFFSET %s"
+    # Build query based on source
+    if source_filter == 'live':
+        # enriched_calls uses 'district' column
+        if district:
+            where_conditions.append("district = %s")
+            params.append(district)
+        
+        where_clause = " AND ".join(where_conditions) if where_conditions else "1=1"
+        
+        query = f"""
+            SELECT 
+                id, timestamp, emergency_type, emergency_subtype, 
+                district, latitude, longitude, description,
+                zipcode, address, priority_flag, caller_gender,
+                caller_age, response_time, source, 'live' as data_source
+            FROM enriched_calls 
+            WHERE {where_clause}
+            ORDER BY timestamp DESC 
+            LIMIT %s OFFSET %s
+        """
+        
+    elif source_filter == 'historical':
+        # emergency_data uses 'township' column - alias it as 'district'
+        if district:
+            where_conditions.append("township = %s")
+            params.append(district)
+        
+        where_clause = " AND ".join(where_conditions) if where_conditions else "1=1"
+        
+        query = f"""
+            SELECT 
+                id, timestamp, emergency_type, emergency_subtype,
+                township AS district, latitude, longitude, description, emergency_title,
+                zipcode, address, priority_flag, caller_gender,
+                caller_age, response_time, source, 'historical' as data_source
+            FROM emergency_data 
+            WHERE {where_clause}
+            ORDER BY timestamp DESC 
+            LIMIT %s OFFSET %s
+        """
+        
+    else:  # 'all' - combine both
+        # Handle district filter for both tables
+        live_where = list(where_conditions)
+        historical_where = list(where_conditions)
+        
+        if district:
+            live_where.append("district = %s")
+            historical_where.append("township = %s")
+            params.append(district)
+            params.append(district)
+        
+        live_clause = " AND ".join(live_where) if live_where else "1=1"
+        historical_clause = " AND ".join(historical_where) if historical_where else "1=1"
+        
+        query = f"""
+            SELECT * FROM (
+                SELECT 
+                    id, timestamp, emergency_type, emergency_subtype,
+                    district, latitude, longitude, description,
+                    NULL as emergency_title,
+                    zipcode, address, priority_flag, caller_gender,
+                    caller_age, response_time, source, 'live' as data_source
+                FROM enriched_calls
+                WHERE {live_clause}
+                
+                UNION ALL
+                
+                SELECT 
+                    id, timestamp, emergency_type, emergency_subtype,
+                    township AS district, latitude, longitude, description, emergency_title,
+                    zipcode, address, priority_flag, caller_gender,
+                    caller_age, response_time, source, 'historical' as data_source
+                FROM emergency_data
+                WHERE {historical_clause}
+            ) AS combined_data
+            ORDER BY timestamp DESC
+            LIMIT %s OFFSET %s
+        """
+
     params.extend([limit, offset])
 
-    with get_connection() as conn:
-        with conn.cursor(dictionary=True) as cursor:
-            cursor.execute(query, params)
-            results = cursor.fetchall()
+    try:
+        with get_connection() as conn:
+            with conn.cursor(dictionary=True) as cursor:
+                cursor.execute(query, params)
+                results = cursor.fetchall()
 
-    return jsonify({"page": page, "limit": limit, "count": len(results), "results": results})
+        return jsonify({
+            "page": page, 
+            "limit": limit, 
+            "count": len(results), 
+            "results": results
+        })
+    except Exception as e:
+        print(f"❌ Error in /calls: {str(e)}")
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route('/calls/latest', methods=['GET'])
 def get_latest_calls():
     limit = request.args.get('limit', 10)
+    source_filter = request.args.get('source', 'all')
+    
     try:
         limit = int(limit)
     except ValueError:
         limit = 10
 
-    query = """
-        SELECT id, timestamp, emergency_type, emergency_subtype, township as district, latitude, longitude,
-               description, caller_gender, caller_age, response_time, source
-        FROM emergency_data
-        ORDER BY timestamp DESC LIMIT %s
-    """
-    with get_connection() as conn:
-        with conn.cursor(dictionary=True) as cursor:
-            cursor.execute(query, (limit,))
-            results = cursor.fetchall()
+    if source_filter == 'live':
+        query = """
+            SELECT 
+                id, timestamp, emergency_type, emergency_subtype, 
+                district, latitude, longitude, description, 
+                caller_gender, caller_age, response_time, source,
+                'live' as data_source
+            FROM enriched_calls
+            ORDER BY timestamp DESC 
+            LIMIT %s
+        """
+    elif source_filter == 'historical':
+        query = """
+            SELECT 
+                id, timestamp, emergency_type, emergency_subtype,
+                township AS district, latitude, longitude, description,
+                caller_gender, caller_age, response_time, source,
+                'historical' as data_source
+            FROM emergency_data
+            ORDER BY timestamp DESC 
+            LIMIT %s
+        """
+    else:  # 'all'
+        query = """
+            SELECT * FROM (
+                SELECT 
+                    id, timestamp, emergency_type, emergency_subtype,
+                    district, latitude, longitude, description,
+                    caller_gender, caller_age, response_time, source,
+                    'live' as data_source
+                FROM enriched_calls
+                
+                UNION ALL
+                
+                SELECT 
+                    id, timestamp, emergency_type, emergency_subtype,
+                    township AS district, latitude, longitude, description,
+                    caller_gender, caller_age, response_time, source,
+                    'historical' as data_source
+                FROM emergency_data
+            ) AS combined
+            ORDER BY timestamp DESC
+            LIMIT %s
+        """
 
-    return jsonify(results)
+    try:
+        with get_connection() as conn:
+            with conn.cursor(dictionary=True) as cursor:
+                cursor.execute(query, (limit,))
+                results = cursor.fetchall()
 
+        return jsonify(results)
+    except Exception as e:
+        print(f"❌ Error in /calls/latest: {str(e)}")
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/calls', methods=['POST'])
 def ingest_call():
@@ -152,7 +286,8 @@ def ingest_call():
                 conn.commit()
 
         # Enqueue classification job in background
-        # q.enqueue(classifier_enricher.process_single_call, raw_id)
+        job = q.enqueue(process_emergency_call, raw_id)
+        print(f"✅ Call {raw_id} enqueued for processing. Job ID: {job.id}")
 
         return jsonify({"message": "Call successfully ingested (enrichment pending)", "raw_id": raw_id}), 201
     except Exception as e:

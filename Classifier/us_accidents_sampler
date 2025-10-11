@@ -1,0 +1,55 @@
+import pandas as pd
+import os
+
+# Paths
+input_path = 'C:/Capstone/Data/US_Accidents_March23.csv'  
+output_path = 'C:/Capstone/Data/us_accidents_sample.csv'
+
+print("Loading US Accidents dataset...")
+print("(This may take 2-3 minutes for 7.7M rows)")
+
+# Load full dataset
+df = pd.read_csv(input_path)
+
+print(f"\nLoaded {len(df)} total rows")
+print(f"Columns: {df.columns.tolist()}")
+
+# Check Description field
+print(f"\n=== Description Field Check ===")
+print(f"Null descriptions: {df['Description'].isnull().sum()}")
+print(f"\nSample descriptions:")
+for i, desc in enumerate(df['Description'].dropna().head(10)):
+    print(f"{i+1}. {desc}")
+
+# Stratified sampling - get diverse geographic representation
+print(f"\n=== Sampling Strategy ===")
+print(f"Taking 200K rows (2.6% of dataset)")
+print(f"Stratified by State to ensure geographic diversity")
+
+# Sample 200K rows, stratified by State
+sample_size = 200000
+state_counts = df['State'].value_counts()
+sample_fractions = (sample_size / len(df))
+
+df_sample = df.groupby('State', group_keys=False).apply(
+    lambda x: x.sample(frac=sample_fractions, random_state=42)
+)
+
+print(f"\nSampled {len(df_sample)} rows")
+print(f"States represented: {df_sample['State'].nunique()}")
+print(f"\nTop states in sample:")
+print(df_sample['State'].value_counts().head(10))
+
+# Save sample
+df_sample.to_csv(output_path, index=False)
+print(f"\n✅ Saved sample to: {output_path}")
+print(f"Original file size: {os.path.getsize(input_path) / (1024**3):.2f} GB")
+print(f"Sample file size: {os.path.getsize(output_path) / (1024**2):.2f} MB")
+
+# Ask before deleting original
+delete = input("\nDelete original file to save space? (yes/no): ")
+if delete.lower() == 'yes':
+    os.remove(input_path)
+    print("✅ Original file deleted")
+else:
+    print("⚠️ Original file kept")

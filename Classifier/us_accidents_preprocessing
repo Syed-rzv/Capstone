@@ -1,0 +1,40 @@
+import pandas as pd
+
+# Load sample
+df = pd.read_csv('C:/Capstone/Data/us_accidents_sample.csv')
+
+print(f"Loaded {len(df)} sampled accidents")
+
+# Create Montgomery-format emergency_title
+def create_traffic_title(description):
+    """
+    Convert US Accidents description to Montgomery format.
+    Example: "Accident on I-95" → "Traffic: ACCIDENT ON I-95"
+    """
+    if pd.isna(description):
+        return None
+    
+    # Clean and uppercase
+    desc_clean = str(description).strip().upper()
+    
+    # Add Traffic prefix (matching Montgomery format)
+    return f"Traffic: {desc_clean}"
+
+print("\nCreating Montgomery-format titles...")
+df['emergency_title'] = df['Description'].apply(create_traffic_title)
+df['emergency_type'] = 'Traffic'
+
+# Remove rows with null descriptions
+df_clean = df[df['emergency_title'].notna()].copy()
+
+print(f"\n=== Preprocessing Results ===")
+print(f"Rows with valid descriptions: {len(df_clean)}")
+print(f"\nSample transformed titles:")
+for title in df_clean['emergency_title'].head(10):
+    print(f"  {title[:80]}...")  # Show first 80 chars
+
+# Save
+output_path = 'C:/Capstone/Data/us_accidents_montgomery_format.csv'
+df_clean[['emergency_title', 'emergency_type']].to_csv(output_path, index=False)
+print(f"\n✅ Saved to: {output_path}")
+print(f"Ready for training!")
