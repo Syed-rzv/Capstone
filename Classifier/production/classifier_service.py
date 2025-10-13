@@ -13,9 +13,8 @@ class EmergencyClassifier:
     
     def __init__(self, model_path=None):
         if model_path is None:
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            model_path = os.path.join(base_dir, 'models', 
-                                     'XGBoost_Combined_MultiJurisdiction.pkl')
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  
+            model_path = os.path.join(base_dir, 'models', 'XGBoost_Combined_MultiJurisdiction.pkl')
         
         self.model_path = model_path
         self.model = None
@@ -66,7 +65,7 @@ class SubtypeClassifier:
     """Loads subtype classifiers for EMS, Fire, and Traffic."""
     
     def __init__(self):
-        base_dir = os.path.dirname(os.path.abspath(__file__))
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  
         models_dir = os.path.join(base_dir, 'models')
         
         self.classifiers = {}

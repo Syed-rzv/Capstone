@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'cri
 
 # Import database config and classifier
 from db_config import get_connection
-from Classifier.classifier_service import classify_call, classify_subtype
+from Classifier.production.classifier_service import classify_call, classify_subtype
 
 
 def calculate_age_group(age):
