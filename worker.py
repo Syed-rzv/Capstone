@@ -8,7 +8,7 @@ from rq import Worker, Queue, SimpleWorker
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Import the processing function
-from Classifier.tasks import process_emergency_call
+from Classifier.production.tasks import process_emergency_call
 
 listen = ['crisislens']
 redis_conn = Redis(host='localhost', port=6379, db=0)

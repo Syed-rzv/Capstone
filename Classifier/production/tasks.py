@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'crisislens-API'))
 
 # Import database config and classifier
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'crisislens-API'))
 from db_config import get_connection
 from Classifier.production.classifier_service import classify_call, classify_subtype
 
@@ -93,9 +94,9 @@ def process_emergency_call(raw_call_id):
                     raw_call_id, latitude, longitude, description, zipcode,
                     timestamp, district, address, priority_flag, 
                     emergency_type, emergency_subtype, caller_gender, 
-                    caller_age, response_time, age_group, source, processed_at
+                    caller_age, response_time, age_group, source, caller_name, caller_number, processed_at
                 ) VALUES (
-                    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW()
+                    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW()
                 )
             """
             
@@ -115,7 +116,9 @@ def process_emergency_call(raw_call_id):
                 raw_call.get('age'),
                 response_time,
                 age_group,
-                'WebForm'
+                'WebForm', 
+                raw_call.get('caller_name'), 
+                raw_call.get('caller_number')
             )
             
             cursor.execute(insert_query, values)

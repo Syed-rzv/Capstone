@@ -20,7 +20,7 @@ import pandas as pd
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Import the background processing function
-from Classifier.tasks import process_emergency_call
+from Classifier.production.tasks import process_emergency_call
 
 # ------------------------- Configuration -------------------------
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
@@ -115,44 +115,53 @@ def get_calls():
             LIMIT %s OFFSET %s
         """
         
-    else:  # 'all' - combine both
-        # Handle district filter for both tables
+    else: 
+        # CRITICAL: UNION queries need DUPLICATE parameters (one set per SELECT)
+        live_params = list(params)  # Copy base filters for first SELECT
+        historical_params = list(params)  # Copy base filters for second SELECT
+
+        # Build WHERE clause lists
         live_where = list(where_conditions)
         historical_where = list(where_conditions)
-        
-        if district:
-            live_where.append("district = %s")
-            historical_where.append("township = %s")
-            params.append(district)
-            params.append(district)
-        
-        live_clause = " AND ".join(live_where) if live_where else "1=1"
-        historical_clause = " AND ".join(historical_where) if historical_where else "1=1"
-        
-        query = f"""
-            SELECT * FROM (
-                SELECT 
-                    id, timestamp, emergency_type, emergency_subtype,
-                    district, latitude, longitude, description,
-                    NULL as emergency_title,
-                    zipcode, address, priority_flag, caller_gender,
-                    caller_age, response_time, source, 'live' as data_source
-                FROM enriched_calls
-                WHERE {live_clause}
-                
-                UNION ALL
-                
-                SELECT 
-                    id, timestamp, emergency_type, emergency_subtype,
-                    township AS district, latitude, longitude, description, emergency_title,
-                    zipcode, address, priority_flag, caller_gender,
-                    caller_age, response_time, source, 'historical' as data_source
-                FROM emergency_data
-                WHERE {historical_clause}
-            ) AS combined_data
-            ORDER BY timestamp DESC
-            LIMIT %s OFFSET %s
-        """
+    
+    # Add district filter to both if present
+    if district:
+        live_where.append("district = %s")
+        historical_where.append("township = %s")
+        live_params.append(district)
+        historical_params.append(district)
+    
+    # Build final WHERE clauses
+    live_clause = " AND ".join(live_where) if live_where else "1=1"
+    historical_clause = " AND ".join(historical_where) if historical_where else "1=1"
+    
+    query = f"""
+        SELECT * FROM (
+            SELECT 
+                id, timestamp, emergency_type, emergency_subtype,
+                district, latitude, longitude, description,
+                NULL as emergency_title,
+                zipcode, address, priority_flag, caller_gender,
+                caller_age, response_time, source, 'live' as data_source
+            FROM enriched_calls
+            WHERE {live_clause}
+            
+            UNION ALL
+            
+            SELECT 
+                id, timestamp, emergency_type, emergency_subtype,
+                township AS district, latitude, longitude, description, emergency_title,
+                zipcode, address, priority_flag, caller_gender,
+                caller_age, response_time, source, 'historical' as data_source
+            FROM emergency_data
+            WHERE {historical_clause}
+        ) AS combined_data
+        ORDER BY timestamp DESC
+        LIMIT %s OFFSET %s
+    """
+    
+    # Combine: live_params + historical_params
+    params = live_params + historical_params
 
     params.extend([limit, offset])
 
@@ -284,6 +293,10 @@ def ingest_call():
                 cursor.execute(insert_query, values)
                 raw_id = cursor.lastrowid
                 conn.commit()
+
+                print(f"✅ Inserted into raw_calls with ID: {raw_id}")  # ← ADD THIS
+                print(f"   caller_name: {data.get('caller_name')}")      # ← ADD THIS
+                print(f"   caller_number: {data.get('caller_number')}")  # ← ADD THIS
 
         # Enqueue classification job in background
         job = q.enqueue(process_emergency_call, raw_id)

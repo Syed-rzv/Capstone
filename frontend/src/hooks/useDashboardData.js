@@ -6,6 +6,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import api, { processApiData } from '../services/api';
 import { generateMockData } from '../data/mockData';
+import { API_CONFIG } from '../config/constants';
 
  const useDashboardData = (filters = {}) => {
   const [data, setData] = useState([]);
@@ -14,18 +15,20 @@ import { generateMockData } from '../data/mockData';
   const [usingMockData, setUsingMockData] = useState(false);
   const [apiAvailable, setApiAvailable] = useState(true);
 
-  // Check API health on mount
+  // Check API health on mount and fetch initial data too
   useEffect(() => {
-    const checkApiHealth = async () => {
+    const initialize = async () => {
       const health = await api.healthCheck();
       setApiAvailable(health.available);
       
       if (!health.available) {
         console.warn('API unavailable, using mock data as fallback');
       }
+      //immediately fetch data post health check
+      fetchData();
     };
-    
-    checkApiHealth();
+
+    initialize();
   }, []);
 
   // Fetch data from API or use mock data
@@ -46,7 +49,7 @@ import { generateMockData } from '../data/mockData';
 
       // Try to fetch from API
       const response = await api.getCalls({
-        limit: 1000, // Fetch more data for better visualization
+        limit: API_CONFIG.CALLS_LIMIT.DASHBOARD, // Fetch more data for better visualization
         ...filters,
       });
 
@@ -75,10 +78,37 @@ import { generateMockData } from '../data/mockData';
     }
   }, [apiAvailable, filters]);
 
+
   useEffect(() => {
-    fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps  
-  }, [apiAvailable]);  // Only refetch if API availability changes
+    // Don't auto-refresh if user is filling out a form
+    let refreshInterval;
+    let lastActivityTime = Date.now();
+    
+    const handleActivity = () => { 
+      lastActivityTime = Date.now();
+    };
+
+    document.addEventListener('keydown', handleActivity);
+    document.addEventListener('click', handleActivity);
+
+    refreshInterval = setInterval(() => { 
+      const timeSinceActivity = Date.now() - lastActivityTime; 
+
+      if(timeSinceActivity > 60000){ 
+        console.log('🔄 Auto-refreshing dashboard data...');
+        fetchData();
+      }else{ 
+        console.log('⏸️ User active, skipping refresh')
+      }
+    }, 60000); 
+
+    return() => { 
+      console.log('🛑 Stopping auto-refresh');
+      clearInterval(refreshInterval); 
+      document.removeEventListener('keydown', handleActivity); 
+      document.removeEventListener('click', handleActivity);
+    }; 
+  }, [fetchData]);
 
   return {
     data,
